@@ -54,8 +54,8 @@ spec:
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ tpl .Values.image.tag . }}"
-          command: {{ .Values.image.command }}
-          args: {{ .Values.image.args }}
+          command: {{- .Values.image.command }}
+          args: {{- .Values.image.args }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - name: VOUCH_PORT
